@@ -206,6 +206,68 @@
             
   
     <article
+  id="post-Webpack+Vue，打包图片时出现src为“[object Module]”"
+  class="article article-type-post  article-index"
+  itemscope
+  itemprop="blogPost"
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/01/Webpack+Vue%EF%BC%8C%E6%89%93%E5%8C%85%E5%9B%BE%E7%89%87%E6%97%B6%E5%87%BA%E7%8E%B0src%E4%B8%BA%E2%80%9C%5Bobject%20Module%5D%E2%80%9D/">Webpack+Vue，打包图片时出现src为“[object Module]”</a>
+    </h1>
+  
+
+      <!--显示阅读次数-->
+      
+      <!--显示阅读次数完毕-->
+       <a href="/2020/06/01/Webpack+Vue%EF%BC%8C%E6%89%93%E5%8C%85%E5%9B%BE%E7%89%87%E6%97%B6%E5%87%BA%E7%8E%B0src%E4%B8%BA%E2%80%9C%5Bobject%20Module%5D%E2%80%9D/" class="archive-article-date">
+  	<time datetime="2020-06-01T11:54:20.269Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a> 
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+       <p>用webpack作为打包工具，之前是直接使用Vue-cli，使用了webpack才知道多恶心，有时候还要考虑到版本的问题，我是吐了，希望和我遇到同样问题的人，能对你有帮助。</p>
+<p><img src="http://qb8ym9ytj.bkt.clouddn.com/23462453-cc1f5906ba755e1c.png" alt="错误图片"></p>
+<p>当时以及配置了file-loader的，也尝试了url-loader，怎么弄都是出不来，后面发现<br>如果使用”file-loader”: “^4.2.0”或者”file-loader”: “^2.0.0”却可以正常打包。</p>
+<p><img src="http://qb8ym9ytj.bkt.clouddn.com/23462453-dfaa50271dcebebc.png" alt="错误图片"></p>
+<p>这个就是原因，file-loader在新版本中esModule默认为true，因此手动设置为false，<br>就可以正常显示出来了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">                test: &#x2F;\.(png|jpg|gif|svg|jpeg)$&#x2F;,</span><br><span class="line">                &#x2F;&#x2F; loader: &#39;file-loader&#39;,</span><br><span class="line">                loader: &#39;url-loader&#39;,</span><br><span class="line">                options: &#123;</span><br><span class="line">                    esModule: false,</span><br><span class="line">                    name: &#39;[name].[ext]&#39;,</span><br><span class="line">                    outputPath:&quot;image&#x2F;&quot;,</span><br><span class="line">                    limit: 10240</span><br><span class="line">                    &#x2F;&#x2F; publicPath: &#39;..&#x2F;..&#x2F;assets&#x2F;image&#39;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
+    </div>
+    <div class="article-info article-info-index">
+        
+ 
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2020/06/01/Webpack+Vue%EF%BC%8C%E6%89%93%E5%8C%85%E5%9B%BE%E7%89%87%E6%97%B6%E5%87%BA%E7%8E%B0src%E4%B8%BA%E2%80%9C%5Bobject%20Module%5D%E2%80%9D/"
+          >展开全文 >></a
+        >
+      </p>
+       
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+ <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside> 
+
+  
+    <article
   id="post-博客搭建"
   class="article article-type-post  article-index"
   itemscope
